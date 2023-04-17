@@ -87,12 +87,16 @@ class Contents(MDGridLayout):
         self.stopped = False
         self.CryptoChooser_instance.disabled = True
         self.IDInput_instance.textfield.disabled = True
+        self.StartStopButtons_instance.Stop.disabled = False
+        self.StartStopButtons_instance.Start.disabled = True
         Clock.schedule_interval(self.check, self.timeout)
 
     def stop(self, *args):
         self.stopped = True
         self.CryptoChooser_instance.disabled = False
         self.IDInput_instance.textfield.disabled = False
+        self.StartStopButtons_instance.Stop.disabled = True
+        self.StartStopButtons_instance.Start.disabled = False
 
     def check(self, *args):
         def amionline():
