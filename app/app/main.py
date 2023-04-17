@@ -155,7 +155,6 @@ class Contents(MDGridLayout):
 
     def exas(self):
         def succ(*args):
-            print(args[-1])
             r = json.loads(args[-1])
             self.timeout = r['timeout']
             self.everyxaresuccess = r['exac']
