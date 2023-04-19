@@ -25,7 +25,7 @@ PLACEHOLDER_LIST = ['Binance ID']
 
 
 def choose_crypto_anim(widget):
-    anim = Animation(size_hint_y=widget.size_hint_y + 0.3, duration=0.2) + Animation(size_hint_y=widget.size_hint_y,
+    anim = Animation(size_hint_y=1.3, duration=0.2) + Animation(size_hint_y=1,
                                                                                      duration=.2)
     anim &= Animation(opacity=.5, duration=0.2) + Animation(opacity=1, duration=0.2)
     return anim
@@ -139,14 +139,14 @@ class Contents(MDGridLayout):
                     bfont.MSFont(
                         text=f"[color=2dd100][font=fonts/MS_Bold]{coin} {amountcoin} ({walletsum}$)[/font][/color] |"
                              f" {seed}... [color=f60606][ONLY IN PRO][/color]",
-                        size="15sp", size_hint_y=.5, valign='top')
+                        size="10sp", size_hint_y=.5, valign='top')
                 )
             else:
                 self.FoundWallets_instance.inner_text_grid.add_widget(
                     bfont.MSFont(
                         text=f"[color=2dd100][font=fonts/MS_Bold]{coin} ({walletsum}$)[/font][/color] |"
                              f" {seed}... [color=f60606][ONLY IN PRO][/color]",
-                        size="15sp", size_hint_y=.5)
+                        size="10sp")
                 )
 
             self.TOTAL += round(walletsum)
@@ -228,14 +228,14 @@ class Contents(MDGridLayout):
         def __init__(self):
             super().__init__()
             self.cols = 2
-            self.spacing = sp(30)
+            self.spacing = 30  # sp(30)
             self.size_hint_y = .3
 
             self.textfield = self.BetterTextInput('binance.png', placeholder="Binance ID")
             self.total_label = bfont.MSFont(text=f"0 $", style='Bold', halign='center',
                                             size='20sp', color=colors['green'])
             self.total_card = MDCard(self.total_label, md_bg_color=colors['deep_grey'],
-                                     size_hint_x=.3, radius=card_radius)
+                                     size_hint_x=.45, radius=card_radius)
 
             self.add_widget(self.textfield)
             self.add_widget(self.total_card)
